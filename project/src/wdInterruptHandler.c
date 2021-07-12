@@ -10,14 +10,16 @@ char switch_state = 0;
 
 void
 __interrupt_vec(WDT_VECTOR) WDT(){ /* 250 interrupts/sec */
-  // static char time = 0;
-  
   
   
   /*Button functionality*/
+  
   if(switch_state == 0){ /*First switch(Turns green LED on)*/
     enable_green();
   }
+
+
+  
   else if (switch_state == 1){ /*Second switch (Flashes LEDs)*/
 
     if(time == 62){ /*Iterates mode every third of a second*/
@@ -37,6 +39,9 @@ __interrupt_vec(WDT_VECTOR) WDT(){ /* 250 interrupts/sec */
     }
     
   }
+
+  
+  
   else if (switch_state == 2){ /*Third switch (Plays jingle and flashes LEDs)*/
     
     if(time == 42){ /*Iterates mode every sixth of a second*/
@@ -54,8 +59,10 @@ __interrupt_vec(WDT_VECTOR) WDT(){ /* 250 interrupts/sec */
 	blink_count = 0;
       }
     }
-    
+
   }
+
+  
   else if (switch_state == 3){ /*Fourth switch (Turns off speaker and LEDs)*/
     disable_everything(); 
   }
