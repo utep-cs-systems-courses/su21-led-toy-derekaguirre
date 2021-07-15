@@ -160,23 +160,8 @@ void red_brightness(int brightness){ /*Selects a brightness mode for red LED*/
     break;
   }
 }
-void green_brightness(int brightness){ /*Selects a brightness mode for green LED*/
-  switch(brightness){
-  case 0:
-    green_bright();
-    break;
-  case 1:
-    green_medium();
-    break;
-  case 2:
-    green_dim();
-    break;
-  case 3:
-    disable_green();
-    break;
-  }
-}
 
+void green_brightness(int brightness); /*Selects a brightness mode for green LED*/
 
 
 void light_alternate2(int state){ /*Flashes the green and red LEDs*/
@@ -218,6 +203,7 @@ void light_alternate2(int state){ /*Flashes the green and red LEDs*/
     state = 0;
   }
 }
+
 
 
 void song1(int state){ /*Plays a simple tune*/
@@ -359,8 +345,7 @@ void song1(int state){ /*Plays a simple tune*/
   }
 }
 
-void song2(int state){ /*Plays a simple tune*/
-  
+void song2(int state){ /*Plays a simple tune*/  
   switch(state){
   case 0:
     buzzer_set_period(t1);
@@ -422,7 +407,6 @@ void song2(int state){ /*Plays a simple tune*/
 }
 
 void song3(int state){ /*Plays a simple tune*/
-  
   switch(state){
   case 0:
     buzzer_set_period(t4);
